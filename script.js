@@ -10,7 +10,7 @@ const symbols = "@$&?#+%";
 
 const allChars = upperCase + lowerCase + numbers + symbols;
 
-function createpassword(){
+function createPassword(){
     let password = " ";
     password += upperCase[Math.floor(Math.random() *upperCase.length)];
     password += lowerCase[Math.floor(Math.random() *lowerCase.length)];
@@ -18,7 +18,7 @@ function createpassword(){
     password += symbols[Math.floor(Math.random() *symbols.length)];
 
 
-    while( lenght > password.length){
+    while( length > password.length){
         password += allChars[Math.floor(Math.random() *allChars.length)];
     }
     Passwordbar.value = password;
@@ -31,5 +31,7 @@ function copyPassword(){
     navigator.clipboard.writeText(Passwordbar.value);
 
     // Alert the copied text
-    alert("Copied the text: " + Passwordbar.value);
+    document.getElementById("copyMsg").style.display = "block";
+setTimeout(() => document.getElementById("copyMsg").style.display = "none", 2000);
+
 }
